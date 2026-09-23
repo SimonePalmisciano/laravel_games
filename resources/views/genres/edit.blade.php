@@ -11,8 +11,9 @@
     </div>
     <div class="d-flex justify-content-center">
         <div class="w-50 border rounded p-3">
-            <form action="{{ route('genres.store') }}" method="POST">
+            <form action="{{ route('genres.update', $genre) }}" method="POST">
                 @csrf
+                @method('PUT')
 
                 <div class="form-control mb-3 d-flex flex-column">
                     <label class="form-label" for="name">Nome Genere</label>
