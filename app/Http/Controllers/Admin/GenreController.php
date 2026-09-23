@@ -42,6 +42,8 @@ class GenreController extends Controller
         $newGenre->description = $data['description'];
 
         $newGenre->save();
+
+        return redirect(route('genres.show', $newGenre));
     }
 
     /**
@@ -55,7 +57,7 @@ class GenreController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Genre $genre) 
+    public function edit(Genre $genre)
     {
         return view('genres.edit', compact('genre'));
     }
@@ -74,6 +76,8 @@ class GenreController extends Controller
         $genre->description = $data['description'];
 
         $genre->update();
+
+        return redirect(route('genres.show', $genre));
     }
 
     /**
