@@ -4,8 +4,8 @@
 
 @section('content')
     <div class="jumbotron p-5 mb-4 bg-light rounded-3">
-        <div class="container py-5 d-flex justify-content-center">
-            <div class="col-6">
+        <div class="container py-5 d-flex justify-content-center flex-wrap">
+            <div class="col-12">
                 <div class="card p-3 text-center">
                     <h5>
                         Admin nome: {{ $user['name'] }}
@@ -14,18 +14,21 @@
                     <p>
                         Admin email: {{ $user['email'] }}
                     </p>
-                    <a class="btn btn-outline-primary" href="{{ url('profile') }}">
-                        {{ __('Profilo') }}
-                    </a>
+                    <div class="d-flex justify-content-center">
+                        <a class="btn btn-outline-primary w-25" href="{{ url('profile') }}">
+                            Profilo
+                        </a>
+                    </div>
                 </div>
+            </div>
+
+            <div class="py-5 d-flex">
+                <a class="btn btn-outline-primary" href="{{ route('genres.index') }}">
+                    Vai ai Generi
+                </a>
             </div>
 
         </div>
     </div>
 
-    <div class="content">
-        <div class="container">
-
-        </div>
-    </div>
 @endsection
