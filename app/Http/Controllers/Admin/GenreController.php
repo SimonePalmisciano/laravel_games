@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Genre;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class GenreController extends Controller
 {
@@ -24,7 +25,7 @@ class GenreController extends Controller
      */
     public function create()
     {
-        //
+        return view('genres.create');
     }
 
     /**
@@ -32,38 +33,56 @@ class GenreController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $newGenre = new Genre();
+
+        $newGenre->slug = Str::slug($data['name']);
+        $newGenre->name = $data['name'];
+        $newGenre->description = $data['description'];
+
+        $newGenre->save();
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Genre $genre)
     {
-        //
+        return view('genres.show', compact('genre'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Genre $genre) 
     {
-        //
+        return view('genres.edit', compact('genre'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Genre $genre)
     {
-        //
+        $data = $request->all();
+
+        $genre = new Genre();
+
+        $genre->slug = Str::slug($data['name']);
+        $genre->name = $data['name'];
+        $genre->description = $data['description'];
+
+        $genre->update();
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Genre $genre)
     {
-        //
+        $genre->delete();
+
+        return redirect(route('genres.index'));
     }
 }
