@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Dashboard Amministratore')
+@section('title', 'Home Amministratore')
 
 @section('content')
     <div class="jumbotron p-5 mb-4 bg-light rounded-3">
@@ -22,9 +22,13 @@
                 </div>
             </div>
 
-            <div class="py-5 d-flex">
-                <a class="btn btn-outline-primary" href="{{ route('genres.index') }}">
-                    Vai ai Generi
+            <div class="py-5 d-flex flex-column gap-2 text-center">
+                <em>
+                    per gestire tutte le risorse presenti vai alla Dashboard Amministratore <br>
+                    qui troverai le risorse con la possibilità di modificarle
+                </em>
+                <a class="btn btn-outline-warning" href="{{ route('dashboard') }}">
+                    Dashboard Amministratore
                 </a>
             </div>
 
