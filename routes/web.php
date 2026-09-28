@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\GenreController;
+use App\Http\Controllers\Admin\VideogamesController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -25,5 +26,9 @@ Route::middleware('auth')->group(function () {
 
 Route::resource('/genres', GenreController::class);
     // ->middleware(['auth', 'verified']);
+
+Route::resource('/videogames', VideogamesController::class);
+    // ->middleware(['auth', 'verified']);
+
 
 require __DIR__.'/auth.php';

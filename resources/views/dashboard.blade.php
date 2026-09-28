@@ -26,7 +26,7 @@
                         <a class="btn btn-outline-primary" href="{{ route('genres.index') }}">
                             Visualizza tutti i Generi
                         </a>
-                        <a class="btn btn-outline-primary" href="">
+                        <a class="btn btn-outline-primary" href="{{ route('videogames.index') }}">
                             Visualizza tutti i Videogiochi
                         </a>
                     </div>

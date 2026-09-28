@@ -35,6 +35,7 @@ class VideogamesController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+        dd($data);
 
         $newGame = new Videogame();
 
