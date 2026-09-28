@@ -4,7 +4,7 @@
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
                 <div class="logo_sito">
-                    <img src="" alt="">
+                    <img src="{{Vite::asset('resources/images/logos/Logo.png')}}" alt="logo sitoweb controller colorato di blue e verde">
                 </div>
             </a>
 
