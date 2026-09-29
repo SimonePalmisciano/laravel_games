@@ -42,12 +42,21 @@ class VideogamesController extends Controller
         $newGame = new Videogame();
 
         $newGame->genre_id = $data['genre_id'];
+
+        // Prende una stringa di testo qualsiasi e la trasforma
+        // Converte tutte le lettere in minuscolo. Sostituisce tutti gli spazi bianchi con un trattino (-).
+        // Rimuove i caratteri speciali, i simboli e le lettere accentate (ad esempio à diventa a).
         $newGame->slug = Str::slug($data['title']);
         $newGame->title = $data['title'];
         $newGame->description = $data['description'];
+
+        // controllo che l'utente sta inviando l'immagine
         if (array_key_exists('cover_image', $data)) {
+
+            // carico la nuova immagine
             $url_img = Storage::putFile('videogames', $data['cover_image']);
 
+            // aggiorno il db con la nuova immagine
             $newGame->cover_image = $url_img;
         }
         $newGame->price = $data['price'];
@@ -74,7 +83,9 @@ class VideogamesController extends Controller
      */
     public function edit(Videogame $videogame)
     {
-        return view('videogames.edit', $videogame);
+        $genres = Genre::all();
+
+        return view('videogames.edit', ['game' => $videogame], compact('genres'));
     }
 
     /**
@@ -91,7 +102,19 @@ class VideogamesController extends Controller
         $videogame->slug = Str::slug($data['title']);
         $videogame->title = $data['title'];
         $videogame->description = $data['description'];
-        $videogame->cover_image = $data['cover_image'];
+
+        // controllo che l'utente sta inviando l'immagine
+        if (array_key_exists('cover_image', $data)) {
+
+            // elimino l'immagine che era presente 
+            Storage::delete($data->cover_img);
+
+            // carico la nuova immagine
+            $url_img = Storage::putFile('videogames', $data['cover_image']);
+
+            // aggiorno il db con la nuova immagine
+            $videogame->cover_image = $url_img;
+        }
         $videogame->price = $data['price'];
         $videogame->release_date = $data['release_date'];
         $videogame->developer = $data['developer'];
@@ -106,6 +129,8 @@ class VideogamesController extends Controller
      */
     public function destroy(Videogame $videogame)
     {
+        Storage::delete($videogame->cover_image);
+
         $videogame->delete();
 
         return redirect(route('videogames.index'));
