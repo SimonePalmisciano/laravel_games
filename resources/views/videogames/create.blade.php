@@ -11,7 +11,7 @@
     </div>
     <div class="d-flex justify-content-center">
         <div class="w-50 border rounded p-3">
-            <form action="{{ route('videogames.store') }}" method="POST">
+            <form action="{{ route('videogames.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
 
                 <div class="form-control mb-3 d-flex flex-column">
@@ -25,10 +25,10 @@
                 </div>
 
                 <div class="form-control mb-3 d-flex flex-column">
-                    <label class="form-label" for="genre">Genere VideoGioco</label>
-                    <select name="genre" id="genre" class="form-select">
+                    <label class="form-label" for="genre_id">Genere VideoGioco</label>
+                    <select name="genre_id" id="genre_id" class="form-select">
                         @foreach ($genres as $genre)
-                            <option value="{{ $genre->name }}">{{ $genre->name }}</option>
+                            <option value="{{ $genre->id }}">{{ $genre->name }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -49,8 +49,8 @@
                 </div>
 
                 <div class="form-control mb-3 d-flex flex-column">
-                    <label class="form-label" for="description">Descrizione VideoGioco</label>
-                    <input class="form-control" type="text" name="" id="">
+                    <label class="form-label" for="cover_image">Immagine VideoGioco</label>
+                    <input class="form-control" type="file" name="cover_image" id="cover_image">
                 </div>
 
                 <input class="btn btn-outline-primary" type="submit" value="Salva VideoGioco">

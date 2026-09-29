@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Genre;
 use App\Models\Videogame;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class VideogamesController extends Controller
@@ -36,15 +37,19 @@ class VideogamesController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        dd($data);
+        // dd($data);
 
         $newGame = new Videogame();
 
-        $newGame->genre_id = $data['genre'];
-        $newGame->slug = Str::slug($data['name']);
+        $newGame->genre_id = $data['genre_id'];
+        $newGame->slug = Str::slug($data['title']);
         $newGame->title = $data['title'];
         $newGame->description = $data['description'];
-        $newGame->cover_image = $data['cover_image'];
+        if (array_key_exists('cover_image', $data)) {
+            $url_img = Storage::putFile('videogames', $data['cover_image']);
+
+            $newGame->cover_image = $url_img;
+        }
         $newGame->price = $data['price'];
         $newGame->release_date = $data['release_date'];
         $newGame->developer = $data['developer'];
@@ -83,7 +88,7 @@ class VideogamesController extends Controller
         $videogame = new Videogame();
 
         $videogame->genre_id = $data['genre'];
-        $videogame->slug = Str::slug($data['name']);
+        $videogame->slug = Str::slug($data['title']);
         $videogame->title = $data['title'];
         $videogame->description = $data['description'];
         $videogame->cover_image = $data['cover_image'];
