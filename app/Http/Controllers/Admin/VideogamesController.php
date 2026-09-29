@@ -25,9 +25,9 @@ class VideogamesController extends Controller
      */
     public function create()
     {
-        $genre = Genre::all();
+        $genres = Genre::all();
 
-        return view('videogames.create', compact('genre'));
+        return view('videogames.create', compact('genres'));
     }
 
     /**

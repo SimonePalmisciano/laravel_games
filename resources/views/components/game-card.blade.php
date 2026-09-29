@@ -25,6 +25,9 @@ oppure se mi viene chiamata dalla index gli fornisco la card "semplificata"
             <p>
                 {{ $game->description }}
             </p>
+            <p>
+                Casa Produttrice: {{$game->developer}}
+            </p>
             <small>
                 Data uscita: {{ $game->release_date->format('d/m/Y') }}
             </small>
