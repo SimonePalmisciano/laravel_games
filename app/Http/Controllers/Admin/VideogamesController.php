@@ -57,49 +57,49 @@ class VideogamesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Videogame $game)
+    public function show(Videogame $videogame)
     {
-        return view('videogames.show', $game);
+        return view('videogames.show', ['game' => $videogame]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Videogame $game)
+    public function edit(Videogame $videogame)
     {
-        return view('videogames.edit', $game);
+        return view('videogames.edit', $videogame);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Videogame $game)
+    public function update(Request $request, Videogame $videogame)
     {
         $data = $request->all();
         dd($data);
 
-        $game = new Videogame();
+        $videogame = new Videogame();
 
-        $game->genre_id = $data['genre'];
-        $game->slug = Str::slug($data['name']);
-        $game->title = $data['title'];
-        $game->description = $data['description'];
-        $game->cover_image = $data['cover_image'];
-        $game->price = $data['price'];
-        $game->release_date = $data['release_date'];
-        $game->developer = $data['developer'];
+        $videogame->genre_id = $data['genre'];
+        $videogame->slug = Str::slug($data['name']);
+        $videogame->title = $data['title'];
+        $videogame->description = $data['description'];
+        $videogame->cover_image = $data['cover_image'];
+        $videogame->price = $data['price'];
+        $videogame->release_date = $data['release_date'];
+        $videogame->developer = $data['developer'];
 
-        $game->update();
+        $videogame->update();
 
-        return redirect(route('videogames.show', $game));
+        return redirect(route('videogames.show', $videogame));
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Videogame $game)
+    public function destroy(Videogame $videogame)
     {
-        $game->delete();
+        $videogame->delete();
 
         return redirect(route('videogames.index'));
     }
