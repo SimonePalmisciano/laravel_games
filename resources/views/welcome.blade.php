@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Home Amministratore')
+@section('title', 'Home')
 
 @section('content')
     <div class="jumbotron p-5 mb-4 bg-light rounded-3">
@@ -8,15 +8,25 @@
             <div class="col-12">
                 <div class="card p-3 text-center">
                     <h5>
-                        Admin nome: {{ $user['name'] }}
+                        Admin nome:
+                        @if ($user !== null)
+                            {{ $user['name'] }}
+                        @endif
                     </h5>
 
                     <p>
-                        Admin email: {{ $user['email'] }}
+                        Admin email:
+                        @if ($user !== null)
+                            {{ $user['email'] }}
+                        @endif
                     </p>
                     <div class="d-flex justify-content-center">
                         <a class="btn btn-outline-primary w-25" href="{{ url('profile') }}">
-                            Profilo
+                            @if ($user)
+                                Profilo
+                            @else
+                                Login
+                            @endif
                         </a>
                     </div>
                 </div>
