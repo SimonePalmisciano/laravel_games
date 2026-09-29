@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
 
+    <link rel="icon" href="{{Vite::asset('resources/images/logos/Logo.png')}}">
+
     @vite(['resources/scss/app.scss', 'resources/js/app.js'])
 </head>
 
@@ -22,6 +24,8 @@
             @yield('content')
         </div>
     </main>
+
+@include('partials.footer')
 </body>
 
 </html>
