@@ -1,4 +1,4 @@
-@props(['game', 'detail' => false])
+@props(['game', 'detail' => false, 'genre'])
 
 {{-- 
 controllo che mi venga richiesta la card dettagliata dalla show 
@@ -18,13 +18,16 @@ oppure se mi viene chiamata dalla index gli fornisco la card "semplificata"
                 <h3>
                     {{ $game->title }}
                 </h3>
-                <small>
-                    Data uscita: {{ $game->release_date->format('d/m/Y') }}
-                </small>
+                <p>
+                    Genere: {{ $genre->find($game->genre)->name }}
+                </p>
             </div>
             <p>
                 {{ $game->description }}
             </p>
+            <small>
+                Data uscita: {{ $game->release_date->format('d/m/Y') }}
+            </small>
             <p>
                 Prezzo: {{ $game->price }} €
             </p>

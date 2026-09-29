@@ -5,7 +5,7 @@
 @section('content')
 
     <div class="">
-        <x-game-card :game="$game" :detail=true></x-game-card>
+        <x-game-card :game="$game" :genre='$genres' :detail=true></x-game-card>
     </div>
 
 @endsection

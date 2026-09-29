@@ -59,7 +59,9 @@ class VideogamesController extends Controller
      */
     public function show(Videogame $videogame)
     {
-        return view('videogames.show', ['game' => $videogame]);
+        $genres = Genre::all();
+
+        return view('videogames.show', ['game' => $videogame], compact('genres'));
     }
 
     /**
