@@ -6,14 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
 
-    <link rel="icon" href="{{Vite::asset('resources/images/logos/Logo.png')}}">
+    <link rel="icon" href="{{ Vite::asset('resources/images/logos/Logo.png') }}">
 
     @vite(['resources/scss/app.scss', 'resources/js/app.js'])
 </head>
 
 <body>
-@include('partials.header')
+    @include('partials.header')
 
+    // intercetto in messaggio di success mandato dal metodo ->with()
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+    
     <main class="">
         <div class="container">
             <section class="title my-5">
@@ -25,7 +32,7 @@
         </div>
     </main>
 
-@include('partials.footer')
+    @include('partials.footer')
 </body>
 
 </html>
