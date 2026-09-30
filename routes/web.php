@@ -24,11 +24,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::resource('/genres', GenreController::class);
-    // ->middleware(['auth', 'verified']);
+// raggruppo tutte le rotte sotto un gruppo con middleware (auth) e con prefisso admin
+Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
+        Route::resource('/genres', GenreController::class);
+        Route::resource('/videogames', VideogamesController::class);
+    });
 
-Route::resource('/videogames', VideogamesController::class);
-    // ->middleware(['auth', 'verified']);
 
-
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

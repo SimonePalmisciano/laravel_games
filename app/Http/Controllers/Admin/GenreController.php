@@ -17,7 +17,7 @@ class GenreController extends Controller
         $genres = Genre::all();
         // dd($genres);
 
-        return view('genres.index', compact('genres'));
+        return view('admin.genres.index', compact('genres'));
     }
 
     /**
@@ -25,7 +25,7 @@ class GenreController extends Controller
      */
     public function create()
     {
-        return view('genres.create');
+        return view('admin.genres.create');
     }
 
     /**
@@ -43,7 +43,7 @@ class GenreController extends Controller
 
         $newGenre->save();
 
-        return redirect(route('genres.show', $newGenre));
+        return redirect(route('admin.genres.show', $newGenre));
     }
 
     /**
@@ -51,7 +51,7 @@ class GenreController extends Controller
      */
     public function show(Genre $genre)
     {
-        return view('genres.show', compact('genre'));
+        return view('admin.genres.show', compact('genre'));
     }
 
     /**
@@ -59,7 +59,7 @@ class GenreController extends Controller
      */
     public function edit(Genre $genre)
     {
-        return view('genres.edit', compact('genre'));
+        return view('admin.genres.edit', compact('genre'));
     }
 
     /**
@@ -75,7 +75,7 @@ class GenreController extends Controller
 
         $genre->update();
 
-        return redirect(route('genres.show', $genre));
+        return redirect(route('admin.genres.show', $genre));
     }
 
     /**
@@ -85,6 +85,6 @@ class GenreController extends Controller
     {
         $genre->delete();
 
-        return redirect(route('genres.index'));
+        return redirect(route('admin.genres.index'));
     }
 }

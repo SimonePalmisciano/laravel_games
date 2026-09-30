@@ -5,7 +5,7 @@
 @section('content')
 
     <div class="my-2 text-end">
-        <a class="btn btn-outline-primary" href="{{ route('genres.index') }}">
+        <a class="btn btn-outline-primary" href="{{ route('admin.genres.index') }}">
             Torna indietro
         </a>
     </div>
@@ -23,7 +23,7 @@
                     </p>
                 </div>
                 <div class="d-flex gap-2 py-3">
-                    <a class="btn btn-outline-secondary" href="{{ route('genres.edit', $genre) }}">
+                    <a class="btn btn-outline-secondary" href="{{ route('admin.genres.edit', $genre) }}">
                         Modifica
                     </a>
                     <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
@@ -47,7 +47,7 @@
                         <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                             Annulla
                         </button>
-                        <form action="{{ route('genres.destroy', $genre) }}" method="POST">
+                        <form action="{{ route('admin.genres.destroy', $genre) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <input class="btn btn-outline-danger" type="submit" value="Elimina">

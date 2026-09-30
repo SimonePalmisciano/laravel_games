@@ -12,7 +12,7 @@
                     <x-game-card :game="$game" :detail=false></x-game-card>
 
                     <div>
-                        <a class="btn btn-outline-primary" href="{{ route('videogames.show', $game) }}">
+                        <a class="btn btn-outline-primary" href="{{ route('admin.videogames.show', $game) }}">
                             Visualizza
                         </a>
                     </div>

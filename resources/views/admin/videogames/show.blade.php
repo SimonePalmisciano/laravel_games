@@ -8,7 +8,7 @@
         <x-game-card :game="$game" :genre='$genres' :detail=true></x-game-card>
     </div>
     <div class="d-flex gap-2">
-        <a class="btn btn-outline-secondary" href="{{ route('videogames.edit', $game) }}">
+        <a class="btn btn-outline-secondary" href="{{ route('admin.videogames.edit', $game) }}">
             Modifica
         </a>
         <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#eliminationModal">
@@ -34,7 +34,7 @@
                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                         Annulla
                     </button>
-                    <form action="{{ route('videogames.destroy', $game) }}" method="POST">
+                    <form action="{{ route('admin.videogames.destroy', $game) }}" method="POST">
                         @csrf
                         @method('DELETE')
                         <input class="btn btn-outline-danger" type="submit" value="Elimina">

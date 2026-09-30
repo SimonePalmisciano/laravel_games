@@ -23,7 +23,7 @@
                         <p>
                             {{ $genre->description }}
                         </p>
-                        <a class="btn btn-outline-primary" href="{{ route('genres.show', $genre->id) }}">
+                        <a class="btn btn-outline-primary" href="{{ route('admin.genres.show', $genre->id) }}">
                             Visualizza
                         </a>
                     </div>

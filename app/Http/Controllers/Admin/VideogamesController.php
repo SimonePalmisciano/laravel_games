@@ -18,7 +18,7 @@ class VideogamesController extends Controller
     {
         $games = Videogame::all();
 
-        return view('videogames.index', compact('games'));
+        return view('admin.videogames.index', compact('games'));
     }
 
     /**
@@ -28,7 +28,7 @@ class VideogamesController extends Controller
     {
         $genres = Genre::all();
 
-        return view('videogames.create', compact('genres'));
+        return view('admin.videogames.create', compact('genres'));
     }
 
     /**
@@ -65,7 +65,7 @@ class VideogamesController extends Controller
 
         $newGame->save();
 
-        return redirect(route('videogames.show', $newGame));
+        return redirect(route('admin.videogames.show', $newGame));
     }
 
     /**
@@ -75,7 +75,7 @@ class VideogamesController extends Controller
     {
         $genres = Genre::all();
 
-        return view('videogames.show', ['game' => $videogame], compact('genres'));
+        return view('admin.videogames.show', ['game' => $videogame], compact('genres'));
     }
 
     /**
@@ -85,7 +85,7 @@ class VideogamesController extends Controller
     {
         $genres = Genre::all();
 
-        return view('videogames.edit', ['game' => $videogame], compact('genres'));
+        return view('admin.videogames.edit', ['game' => $videogame], compact('genres'));
     }
 
     /**
@@ -94,9 +94,7 @@ class VideogamesController extends Controller
     public function update(Request $request, Videogame $videogame)
     {
         $data = $request->all();
-        dd($data);
-
-        $videogame = new Videogame();
+        // dd($data);
 
         $videogame->genre_id = $data['genre'];
         $videogame->slug = Str::slug($data['title']);
@@ -107,7 +105,7 @@ class VideogamesController extends Controller
         if (array_key_exists('cover_image', $data)) {
 
             // elimino l'immagine che era presente 
-            Storage::delete($data->cover_img);
+            Storage::delete($data['cover_img']);
 
             // carico la nuova immagine
             $url_img = Storage::putFile('videogames', $data['cover_image']);
@@ -121,7 +119,7 @@ class VideogamesController extends Controller
 
         $videogame->update();
 
-        return redirect(route('videogames.show', $videogame));
+        return redirect(route('admin.videogames.show', $videogame));
     }
 
     /**
@@ -133,6 +131,6 @@ class VideogamesController extends Controller
 
         $videogame->delete();
 
-        return redirect(route('videogames.index'));
+        return redirect(route('admin.videogames.index'));
     }
 }

@@ -23,10 +23,10 @@
                         <p>
                             qui puoi gestire tutte le tue risorse
                         </p>
-                        <a class="btn btn-outline-primary" href="{{ route('genres.index') }}">
+                        <a class="btn btn-outline-primary" href="{{ route('admin.genres.index') }}">
                             Visualizza tutti i Generi
                         </a>
-                        <a class="btn btn-outline-primary" href="{{ route('videogames.index') }}">
+                        <a class="btn btn-outline-primary" href="{{ route('admin.videogames.index') }}">
                             Visualizza tutti i Videogiochi
                         </a>
                     </div>
