@@ -24,6 +24,7 @@ class StoreVideogameRequest extends FormRequest
         return [
             'title' => 'required|string|max:255',
             'genre_id' => 'required|exists:genres,id', // controlla che il genere esista nel DB
+            // controlla all'interno della tabella `genres` nella colonna `id` esiste il dato inviato
             'description' => 'required|string',
             'cover_image' => 'nullable|image|max:4096', // accetta immagini fino a 4MB
             'price' => 'required|numeric|min:0',

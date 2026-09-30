@@ -9,6 +9,9 @@
             Torna indietro
         </a>
     </div>
+    @error('title')
+        <div class="text-danger">{{ $message }}</div>
+    @enderror
     <div class="d-flex justify-content-center">
         <div class="w-50 border rounded p-3">
             <form action="{{ route('admin.videogames.store') }}" method="POST" enctype="multipart/form-data">
@@ -45,7 +48,8 @@
 
                 <div class="form-control mb-3 d-flex flex-column">
                     <label class="form-label" for="price">Prezzo</label>
-                    <input class="form-control" type="number" step="0.01" min="0" placeholder="0.00" name="price" id="price">
+                    <input class="form-control" type="number" step="0.01" min="0" placeholder="0.00"
+                        name="price" id="price">
                 </div>
 
                 <div class="form-control mb-3 d-flex flex-column">
