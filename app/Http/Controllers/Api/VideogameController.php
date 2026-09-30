@@ -46,6 +46,8 @@ class VideogameController extends Controller
         // carichiamo il singolo gioco con il suo genere
         $videogame->load('genre');
 
+        // dd($videogame);
+
         return response()->json([
             'success' => true,
             'response' => $videogame

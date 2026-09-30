@@ -9,4 +9,4 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 Route::get('/videogames', [VideogameController::class, 'index']);
-Route::get('/videogames/{videogames}', [VideogameController::class, 'show']);
+Route::get('/videogames/{videogame}', [VideogameController::class, 'show']);
