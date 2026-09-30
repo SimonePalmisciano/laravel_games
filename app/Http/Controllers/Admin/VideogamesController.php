@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreVideogameRequest;
 use App\Models\Genre;
 use App\Models\Videogame;
 use Illuminate\Http\Request;
@@ -34,9 +35,9 @@ class VideogamesController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreVideogameRequest $request)
     {
-        $data = $request->all();
+        $data = $request->validated();
         // dd($data);
 
         $newGame = new Videogame();
@@ -65,7 +66,9 @@ class VideogamesController extends Controller
 
         $newGame->save();
 
-        return redirect(route('admin.videogames.show', $newGame));
+        return redirect(route('admin.videogames.show', $newGame))
+            ->with('success', 'Videogioco creato con successo!');// serve a inviare un messaggio flash
+            // i dati flash sono dati temporanei che rimangono vivi esattamente per una sola richiesta HTTP
     }
 
     /**
