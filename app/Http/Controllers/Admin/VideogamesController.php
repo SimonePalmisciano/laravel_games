@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreVideogameRequest;
+use App\Http\Requests\UpdateVideogameRequest;
 use App\Models\Genre;
 use App\Models\Videogame;
 use Illuminate\Http\Request;
@@ -94,7 +95,7 @@ class VideogamesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Videogame $videogame)
+    public function update(UpdateVideogameRequest $request, Videogame $videogame)
     {
         $data = $request->all();
         // dd($data);
