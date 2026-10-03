@@ -18,6 +18,11 @@ body {
     margin: 0;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 header {
     height: 80px;
 }
@@ -31,7 +36,28 @@ footer {
 }
 
 .card {
-    height: 330px;
+    height: 100%; 
+    display: flex;
+    flex-direction: column;
+    
+    .card-header {
+        height: 180px;
+        padding: 0;
+        overflow: hidden;
+        
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+        }
+    }
+
+    .card-body {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; 
+    }
 }
 
 .blur-backdrop {

@@ -32,9 +32,13 @@ class RawgVideogameSeeder extends Seeder
                     // Prendiamo il primo genere associato al gioco su RAWG
                     $firstGenre = $gameData['genres'][0];
                     $genreName = $firstGenre['name'];
+                    $genreSlug = Str::slug($genreName);
 
                     // Cerchiamo il genere nel nostro DB o lo creiamo se non esiste
-                    $genre = Genre::firstOrCreate(['name' => $genreName]);
+                    $genre = Genre::firstOrCreate(
+                        ['name' => $genreName],
+                        ['slug' => $genreSlug]
+                    );
                     $genreId = $genre->id;
                 }
 

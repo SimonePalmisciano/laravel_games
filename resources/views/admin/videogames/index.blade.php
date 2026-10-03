@@ -8,14 +8,10 @@
         @foreach ($games as $game)
             <div class="col">
                 <div class="card">
+                    <a href="{{ route('admin.videogames.show', $game) }}">
+                        <x-game-card :game="$game" :detail=false></x-game-card>
+                    </a>
 
-                    <x-game-card :game="$game" :detail=false></x-game-card>
-
-                    <div>
-                        <a class="btn btn-outline-primary" href="{{ route('admin.videogames.show', $game) }}">
-                            Visualizza
-                        </a>
-                    </div>
                 </div>
             </div>
         @endforeach
