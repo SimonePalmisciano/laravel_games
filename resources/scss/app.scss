@@ -7,6 +7,34 @@
     box-sizing: border-box;
 }
 
+body {
+    color: white;
+    background-image: url('../images/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    margin: 0;
+}
+
+header {
+    height: 80px;
+}
+
+// main {
+//     height: calc(100vh - 80px);
+// }
+
+footer {
+    height: 60px;
+}
+
+.blur-backdrop {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
 .logo_sito {
     img {
         width: 60px;
