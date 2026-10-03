@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <div class="">
+    <div class="container">
         <x-game-card :game="$game" :genre='$genres' :detail=true></x-game-card>
     </div>
     <div class="d-flex gap-2">

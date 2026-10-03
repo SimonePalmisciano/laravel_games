@@ -1,5 +1,7 @@
 @props(['game', 'detail' => false, 'genre'])
 
+{{-- @dd($game) --}}
+
 {{-- 
 controllo che mi venga richiesta la card dettagliata dalla show 
 oppure se mi viene chiamata dalla index gli fornisco la card "semplificata"  
@@ -10,7 +12,7 @@ oppure se mi viene chiamata dalla index gli fornisco la card "semplificata"
     <div class="">
         <div class="card-header d-flex justify-content-center">
             @if ($game->cover_image !== '')
-                <img src="{{ asset("storage/" . $game->cover_image) }}" alt="">
+                <img class="w-100" src="{{ asset("storage/" . $game->cover_image) }}" alt="">
             @endif
         </div>
         <div class="card-body">
@@ -37,10 +39,10 @@ oppure se mi viene chiamata dalla index gli fornisco la card "semplificata"
         </div>
     </div>
 @else
-    <div class="">
+    <div class="" >
         <div class="card-header">
             @if ($game->cover_image !== '')
-                <img src="{{ $game->cover_image }}" alt="">
+                <img class="w-100" src="{{ asset("storage/" . $game->cover_image) }}" alt="">
             @endif
         </div>
         <div class="card-body">
