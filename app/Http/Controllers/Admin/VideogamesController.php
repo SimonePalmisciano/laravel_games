@@ -109,7 +109,7 @@ class VideogamesController extends Controller
         if (array_key_exists('cover_image', $data)) {
 
             // elimino l'immagine che era presente 
-            Storage::delete($data['cover_img']);
+            Storage::delete($videogame->cover_image);
 
             // carico la nuova immagine
             $url_img = Storage::putFile('videogames', $data['cover_image']);
