@@ -51,7 +51,11 @@ class RawgVideogameSeeder extends Seeder
             $description = trim(html_entity_decode($description, ENT_QUOTES | ENT_HTML5, 'UTF-8'));
             $description = $description !== '' ? $description : 'Nessuna descrizione disponibile.';
 
-            $developer = 'Sconosciuto';
+            $developers = collect($detailResponse->json('developers', []))
+                ->pluck('name')
+                ->filter()
+                ->implode(', ');
+            $developer = $developers !== '' ? $developers : 'Sconosciuto';
 
             // Salvataggio o aggiornamento del videogioco per evitare duplicati
             Videogame::updateOrCreate(
