@@ -23,10 +23,10 @@ class VideogameController extends Controller
             ->when($request->filled('title'), function ($query) use ($request) { // use ($request) permette di richimare la variabile all'interno dello scope della funzione
                 $query->where('title', 'LIKE', '%' . $request->title . '%');
             })
-            ->where($request->filled('genre_id'), function ($query) use ($request) {
+            ->when($request->filled('genre_id'), function ($query) use ($request) {
                 $query->where('genre_id', $request->genre_id);
             })
-            ->where($request->filled('release_date'), function ($query) use ($request) {
+            ->when($request->filled('release_date'), function ($query) use ($request) {
                 $query->where('release_date', 'LIKE', '%' . $request->release_date . '%');
             })
             ->get();
