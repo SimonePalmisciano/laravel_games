@@ -4,11 +4,19 @@
 
 @section('content')
 
-    <div class="my-2 text-end">
-        <a class="btn btn-info" href="{{ route('dashboard') }}">
-            Torna alla Dashboard Amministratore
-        </a>
+    <div class="my-3 d-flex justify-content-between">
+        <div>
+            <a class="btn btn-info" href="{{ route('dashboard') }}">
+                Torna alla Dashboard Amministratore
+            </a>
+        </div>
+        <div>
+            <a class="btn btn-success" href="{{ route('admin.videogames.create') }}">
+                Aggiungi nuovo Videogioco
+            </a>
+        </div>
     </div>
+    <hr>
 
     <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3 g-3">
         @foreach ($games as $game)
