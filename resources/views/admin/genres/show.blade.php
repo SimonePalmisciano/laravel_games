@@ -5,7 +5,7 @@
 @section('content')
 
     <div class="my-2 text-end">
-        <a class="btn btn-outline-primary" href="{{ route('admin.genres.index') }}">
+        <a class="btn btn-info" href="{{ route('admin.genres.index') }}">
             Torna indietro
         </a>
     </div>
@@ -23,10 +23,10 @@
                     </p>
                 </div>
                 <div class="d-flex gap-2 py-3">
-                    <a class="btn btn-outline-secondary" href="{{ route('admin.genres.edit', $genre) }}">
+                    <a class="btn btn-secondary" href="{{ route('admin.genres.edit', $genre) }}">
                         Modifica
                     </a>
-                    <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                         data-bs-target="#eliminationModal">
                         Elimina
                     </button>

@@ -6,14 +6,14 @@
     <div class="container text-black">
         <div class="row justify-content-center">
             <div class="col">
-                <div class="card">
+                <div class="card text-center">
                     <div class="card-header">
                         <h4>
                             Ben tornato: <strong>{{ $user->name }}</strong>
                         </h4>
                     </div>
 
-                    <div class="card-body">
+                    <div class="card-body p-5">
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">
                                 {{ session('status') }}

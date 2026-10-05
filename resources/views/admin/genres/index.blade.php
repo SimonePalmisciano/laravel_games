@@ -5,7 +5,7 @@
 @section('content')
 
     <div class="my-2 text-end">
-        <a class="btn btn-outline-warning" href="{{ route('dashboard') }}">
+        <a class="btn btn-info" href="{{ route('dashboard') }}">
             Torna alla Dashboard Amministratore
         </a>
     </div>

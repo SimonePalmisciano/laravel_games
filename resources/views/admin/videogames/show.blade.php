@@ -4,14 +4,20 @@
 
 @section('content')
 
+    <div class="my-2 text-end">
+        <a class="btn btn-info" href="{{ route('admin.videogames.index') }}">
+            Torna indietro
+        </a>
+    </div>
+
     <div class="container">
         <x-game-card :game="$game" :genre='$genres' :detail=true></x-game-card>
     </div>
     <div class="d-flex gap-2">
-        <a class="btn btn-outline-secondary" href="{{ route('admin.videogames.edit', $game) }}">
+        <a class="btn btn-secondary" href="{{ route('admin.videogames.edit', $game) }}">
             Modifica
         </a>
-        <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#eliminationModal">
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminationModal">
             Elimina
         </button>
     </div>
@@ -24,7 +30,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="eliminationModalTitle">Elimare {{$game->title}}</h1>
+                    <h1 class="modal-title fs-5" id="eliminationModalTitle">Elimare {{ $game->title }}</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">

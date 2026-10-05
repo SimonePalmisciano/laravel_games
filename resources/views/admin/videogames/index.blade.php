@@ -4,10 +4,16 @@
 
 @section('content')
 
+    <div class="my-2 text-end">
+        <a class="btn btn-info" href="{{ route('dashboard') }}">
+            Torna alla Dashboard Amministratore
+        </a>
+    </div>
+
     <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3 g-3">
         @foreach ($games as $game)
             <div class="col">
-                <div class="card-game">
+                <div class="card card-game">
                     <a href="{{ route('admin.videogames.show', $game) }}">
                         <x-game-card :game="$game" :detail=false></x-game-card>
                     </a>

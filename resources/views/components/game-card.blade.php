@@ -20,12 +20,12 @@ oppure se mi viene chiamata dalla index gli fornisco la card "semplificata"
     {{-- @dd($game) --}}
 
     <div class="">
-        <div class="card-header-game d-flex justify-content-center">
+        <div class="card-header d-flex justify-content-center">
             @if ($coverImageUrl)
                 <img class="w-100" src="{{ $coverImageUrl }}" alt="">
             @endif
         </div>
-        <div class="card-body-game">
+        <div class="card-body">
             <div class="card-title">
                 <h3>
                     {{ $game->title }}
@@ -50,12 +50,12 @@ oppure se mi viene chiamata dalla index gli fornisco la card "semplificata"
     </div>
 @else
     <div class="" >
-        <div class="card-header-game">
+        <div class="card-header">
             @if ($coverImageUrl)
                 <img class="w-100" src="{{ $coverImageUrl }}" alt="">
             @endif
         </div>
-        <div class="card-body-game">
+        <div class="card-body">
             <div class="card-title">
                 <h3>
                     {{ $game->title }}
