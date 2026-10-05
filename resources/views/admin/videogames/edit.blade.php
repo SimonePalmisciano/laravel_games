@@ -6,12 +6,12 @@
 {{-- @dd($game) --}}
 
     <div class="my-2 text-end">
-        <a class="btn btn-outline-primary" href="{{ route('admin.videogames.index') }}">
+        <a class="btn btn-info" href="{{ route('admin.videogames.index') }}">
             Torna indietro
         </a>
     </div>
     <div class="d-flex justify-content-center">
-        <div class="w-50 border rounded p-3">
+        <div class="w-50 bg-white border rounded p-3">
             <form action="{{ route('admin.videogames.update', $game) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
@@ -60,7 +60,7 @@
                     <input class="form-control" type="file" name="cover_image" id="cover_image">
                 </div>
 
-                <input class="btn btn-outline-primary" type="submit" value="Salva VideoGioco">
+                <input class="btn btn-primary" type="submit" value="Salva VideoGioco">
             </form>
         </div>
     </div>

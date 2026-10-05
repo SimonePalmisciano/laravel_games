@@ -5,12 +5,12 @@
 @section('content')
 
     <div class="my-2 text-end">
-        <a class="btn btn-outline-primary" href="{{ route('admin.genres.show', $genre) }}">
+        <a class="btn btn-info" href="{{ route('admin.genres.show', $genre) }}">
             Torna indietro
         </a>
     </div>
     <div class="d-flex justify-content-center">
-        <div class="w-50 border rounded p-3">
+        <div class="w-50 bg-white border rounded p-3">
             <form action="{{ route('admin.genres.update', $genre) }}" method="POST">
                 @csrf
                 @method('PUT')
@@ -25,7 +25,7 @@
                     <textarea class="form-control" name="description" id="description">{{$genre->description}}</textarea>
                 </div>
 
-                <input class="btn btn-outline-primary" type="submit" value="Salva Genere">
+                <input class="btn btn-primary" type="submit" value="Salva Genere">
             </form>
         </div>
     </div>

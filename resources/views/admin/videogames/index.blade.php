@@ -4,18 +4,28 @@
 
 @section('content')
 
+    <div class="my-3 d-flex justify-content-between">
+        <div>
+            <a class="btn btn-info" href="{{ route('dashboard') }}">
+                Torna alla Dashboard Amministratore
+            </a>
+        </div>
+        <div>
+            <a class="btn btn-success" href="{{ route('admin.videogames.create') }}">
+                Aggiungi nuovo Videogioco
+            </a>
+        </div>
+    </div>
+    <hr>
+
     <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3 g-3">
         @foreach ($games as $game)
             <div class="col">
-                <div class="card">
+                <div class="card card-game">
+                    <a href="{{ route('admin.videogames.show', $game) }}">
+                        <x-game-card :game="$game" :detail=false></x-game-card>
+                    </a>
 
-                    <x-game-card :game="$game" :detail=false></x-game-card>
-
-                    <div>
-                        <a class="btn btn-outline-primary" href="{{ route('admin.videogames.show', $game) }}">
-                            Visualizza
-                        </a>
-                    </div>
                 </div>
             </div>
         @endforeach

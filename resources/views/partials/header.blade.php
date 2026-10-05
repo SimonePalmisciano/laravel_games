@@ -1,6 +1,6 @@
-<header>
+<header class="layout-header">
 
-    <nav class="navbar navbar-expand-md navbar-light bg-white glass-bar">
+    <nav class="navbar h-100 navbar-expand-md navbar-light bg-white glass-bar">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
                 <div class="logo_sito">

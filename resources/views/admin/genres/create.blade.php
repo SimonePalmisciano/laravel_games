@@ -5,12 +5,13 @@
 @section('content')
 
     <div class="my-2 text-end">
-        <a class="btn btn-outline-primary" href="{{ route('admin.genres.index') }}">
+        <a class="btn btn-info" href="{{ route('admin.genres.index') }}">
             Torna indietro
         </a>
     </div>
+
     <div class="d-flex justify-content-center">
-        <div class="w-50 border rounded p-3">
+        <div class="w-50 bg-white border rounded p-4">
             <form action="{{ route('admin.genres.store') }}" method="POST">
                 @csrf
 
@@ -24,7 +25,7 @@
                     <textarea class="form-control" name="description" id="description"></textarea>
                 </div>
 
-                <input class="btn btn-outline-primary" type="submit" value="Salva Genere">
+                <input class="btn btn-primary" type="submit" value="Salva Genere">
             </form>
         </div>
     </div>

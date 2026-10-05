@@ -22,8 +22,8 @@
     @endif
     
     <main class="">
-        <div class="container">
-            <section class="title my-5">
+        <div class="container blur-backdrop py-5">
+            <section class="title">
                 <h1>
                     @yield('title')
                 </h1>

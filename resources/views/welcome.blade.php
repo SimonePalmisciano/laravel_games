@@ -3,7 +3,7 @@
 @section('title', 'Home')
 
 @section('content')
-    <div class="jumbotron p-5 mb-4 bg-light rounded-3">
+    <div class="jumbotron p-5 mb-4 bg-light rounded-3 text-black">
         <div class="container py-5 d-flex justify-content-center flex-wrap">
             <div class="col-12">
                 <div class="card p-3 text-center">

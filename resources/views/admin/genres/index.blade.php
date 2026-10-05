@@ -4,11 +4,19 @@
 
 @section('content')
 
-    <div class="my-2 text-end">
-        <a class="btn btn-outline-warning" href="{{ route('dashboard') }}">
-            Torna alla Dashboard Amministratore
-        </a>
+    <div class="my-3 d-flex justify-content-between">
+        <div>
+            <a class="btn btn-info" href="{{ route('dashboard') }}">
+                Torna alla Dashboard Amministratore
+            </a>
+        </div>
+        <div>
+            <a class="btn btn-success" href="{{ route('admin.genres.create') }}">
+                Aggiungi nuovo Genere
+            </a>
+        </div>
     </div>
+    <hr>
     <div class="row g-4 row-cols-1 row-cols-md-3 row-cols-lg-4">
         @foreach ($genres as $genre)
             <div class="col">
@@ -18,6 +26,8 @@
                             {{ $genre->name }}
                         </h2>
                     </div>
+
+                    <hr>
 
                     <div class="card-body">
                         <p>

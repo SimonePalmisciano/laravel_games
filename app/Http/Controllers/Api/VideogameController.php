@@ -11,10 +11,25 @@ class VideogameController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        // carichiamo anche la relazione 'genre' per passarla a React
-        $videogames = Videogame::with('genre')->get();
+
+        $videogames = Videogame::query() // query builder di Eloquent ci permette 
+            //di accumulare condizioni prima di comunicare con il DB
+            ->with('genre') // ->with() dice a laravel di caricare in un'unica query anche i dati della tabella genres
+
+            //$request->filled('title') verifica due condizioni contemporaneamente
+            // parametro title esista e che non sia vuoto, se la condizione è falsa salta tutto il blocco
+            ->when($request->filled('title'), function ($query) use ($request) { // use ($request) permette di richimare la variabile all'interno dello scope della funzione
+                $query->where('title', 'LIKE', '%' . $request->title . '%');
+            })
+            ->when($request->filled('genre_id'), function ($query) use ($request) {
+                $query->where('genre_id', $request->genre_id);
+            })
+            ->when($request->filled('release_date'), function ($query) use ($request) {
+                $query->where('release_date', 'LIKE', '%' . $request->release_date . '%');
+            })
+            ->get();
 
         return response()->json([
             'success' => true,
