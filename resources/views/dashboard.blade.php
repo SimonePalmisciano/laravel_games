@@ -3,7 +3,7 @@
 @section('title', 'Dashboard Amministratore')
 
 @section('content')
-    <div class="container">
+    <div class="container text-black">
         <div class="row justify-content-center">
             <div class="col">
                 <div class="card">
