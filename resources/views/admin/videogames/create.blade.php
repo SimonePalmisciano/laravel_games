@@ -13,7 +13,7 @@
         <div class="text-danger">{{ $message }}</div>
     @enderror
     <div class="d-flex justify-content-center">
-        <div class="w-50 bg-white border rounded p-3">
+        <div class="w-50 bg-white border rounded p-4">
             <form action="{{ route('admin.videogames.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
 

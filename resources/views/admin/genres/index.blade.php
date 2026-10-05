@@ -27,6 +27,8 @@
                         </h2>
                     </div>
 
+                    <hr>
+
                     <div class="card-body">
                         <p>
                             {{ $genre->description }}

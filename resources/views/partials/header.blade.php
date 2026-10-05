@@ -1,4 +1,4 @@
-<header>
+<header class="layout-header">
 
     <nav class="navbar h-100 navbar-expand-md navbar-light bg-white glass-bar">
         <div class="container">

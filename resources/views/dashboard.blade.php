@@ -21,7 +21,7 @@
                         @endif
 
                         <p>
-                            qui puoi gestire tutte le tue risorse
+                            Qui puoi gestire tutte le tue risorse
                         </p>
                         <a class="btn btn-outline-primary" href="{{ route('admin.genres.index') }}">
                             Visualizza tutti i Generi
